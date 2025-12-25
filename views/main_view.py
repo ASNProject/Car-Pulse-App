@@ -17,6 +17,7 @@ from tkinter import ttk
 from core import config
 from controllers.user_controller import UserController
 from views.widgets.labeled_entry import LabeledEntry
+from core.utils import center_window
 
 class MainView(tk.Tk):
     def __init__(self):
@@ -27,6 +28,8 @@ class MainView(tk.Tk):
         self.configure(bg=config.THEME_COLOR)
 
         self.controller = UserController()
+
+        center_window(self)
 
         # Username input
         self.username_input = LabeledEntry(self, "Username:")

@@ -13,6 +13,29 @@
 # limitations under the License.
 
 # Fungsi helper umum
+import tkinter as tk
+
+
+def center_window(window: tk.Tk | tk.Toplevel):
+    """
+    Center a Tkinter window on the screen.
+    
+    Args:
+        window: Instance of Tk() or Toplevel()
+    """
+    window.update_idletasks()
+
+    w = window.winfo_width()
+    h = window.winfo_height()
+
+    sw = window.winfo_screenwidth()
+    sh = window.winfo_screenheight()
+
+    x = (sw // 2) - (w // 2)
+    y = (sh // 2) - (h // 2)
+
+    window.geometry(f"{w}x{h}+{x}+{y}")
+    
 def format_text(text: str) -> str:
     """Format text agar huruf pertama kapital"""
     return text.strip().capitalize()
