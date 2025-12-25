@@ -1,1 +1,4 @@
-
+future~=0.18.3
+pillow~=10.3.0
+tkintermapview~=1.29
+pyserial~=3.5

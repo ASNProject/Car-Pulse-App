@@ -13,6 +13,12 @@
 # limitations under the License.
 
 # Konfigurasi Global
-APP_TITLE = "Sample Project Python"
-WINDOW_SIZE = "400x250"
+APP_TITLE = "Car Pulse"
+WINDOW_SIZE = "800x480"
 THEME_COLOR = "#f0f0f0"
+
+ROAD_COLOR = "#3b3b3b"
+ROAD_LINE_COLOR = "white"
+
+BOX_BG = "#111111"
+BOX_BORDER = "#00ffc6"

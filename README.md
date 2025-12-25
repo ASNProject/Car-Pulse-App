@@ -36,8 +36,8 @@ cd project_name
 pip install -r requirements.txt
 ```
 - Run Project
-```p
-ython main.py
+```
+python main.py
 ```
 
 
