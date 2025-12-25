@@ -17,25 +17,19 @@ import threading
 import json
 
 class SerialReader:
-    """
-    Baca data JSON dari ESP32 secara realtime di thread terpisah.
-    """
     def __init__(self, port="COM5", baudrate=115200, callback=None):
-        """
-        Args:
-            port: COM port ESP32
-            baudrate: serial baudrate
-            callback: function(data: dict) dipanggil tiap data baru
-        """
         self.ser = serial.Serial(port, baudrate, timeout=1)
+        self.ser.reset_input_buffer()  
         self.callback = callback
         threading.Thread(target=self._read_loop, daemon=True).start()
 
     def _read_loop(self):
         while True:
             try:
-                line = self.ser.readline().decode("utf-8").strip()
-                if line:
+                line = self.ser.readline().decode("utf-8", errors="ignore").strip()
+                if line:  # print setiap line yang diterima
+                    print("Raw line:", line)
+                if line.startswith("{") and line.endswith("}"):
                     data = json.loads(line)
                     if self.callback:
                         self.callback(data)
